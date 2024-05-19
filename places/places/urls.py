@@ -7,4 +7,5 @@ from . import views
 urlpatterns = [
     url(r'^places/', views.PlaceList, name='placeList'),
     url(r'^placescreate/$', csrf_exempt(views.PlaceCreate), name='placeCreate'),
+    url(r'^check/$', csrf_exempt(views.check), name='check'),
 ]

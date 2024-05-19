@@ -20,7 +20,7 @@ def PlaceCreate(request):
         return HttpResponse("successfully created variable")
     
 def check(request):
-    name=request.GET.get('name')
+    name=request.data['name']
     place = Place.objects.filter(name=name)
     if place.exists():
         return HttpResponse("Place exists")
