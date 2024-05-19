@@ -55,7 +55,7 @@ def MeasurementsCreate(request):
         measurement_list = []
         for measurement in data_json:
             if check_place(measurement['place']) == False:
-                return HttpResponse("unsuccessfully created measurement. Place does not exist")
+                continue
             
             if check_variable(measurement) == True:
                 db_measurement = Measurement()
