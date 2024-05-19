@@ -1,13 +1,12 @@
 from .models import Place
-from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.http import HttpResponse
-from django.urls import reverse
 from django.http import JsonResponse
+
+
 import json
 
 def PlaceList(request):
-    queryset = Place
+    queryset = Place.objects.all()
     context = list(queryset.values('id', 'name'))
     return JsonResponse(context, safe=False)
 
