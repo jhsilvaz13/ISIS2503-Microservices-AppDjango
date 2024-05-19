@@ -134,3 +134,4 @@ STATICFILES_DIRS = (
 )
 
 PATH_VAR = "http://" + os.environ.get("VARIABLES_HOST", "10.128.0.84") + ":" + os.environ.get("VARIABLES_PORT", "8080") + "/variables"
+PATH_PLACE = "http://" + os.environ.get("PLACES_HOST", "10.128.0.87") + ":" + os.environ.get("PLACES_PORT", "8080") + "/places"
