@@ -16,6 +16,14 @@ def check_variable(data):
             return True
     return False
 
+def check_place(place: str):
+    params = {"name": place}
+    r = requests.get(settings.PATH_PLACE, headers={"Accept":"application/json"}, params=params)
+    if r.text == "Place exists":
+        return True
+    return False
+
+    
 def MeasurementList(request):
     queryset = Measurement.objects.all()
     context = list(queryset.values('id', 'variable', 'value', 'unit', 'place', 'dateTime'))
@@ -25,6 +33,10 @@ def MeasurementCreate(request):
     if request.method == 'POST':
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
+        
+        if check_place(data_json['place']) == False:
+            return HttpResponse("unsuccessfully created measurement. Place does not exist")
+        
         if check_variable(data_json) == True:
             measurement = Measurement()
             measurement.variable = data_json['variable']
