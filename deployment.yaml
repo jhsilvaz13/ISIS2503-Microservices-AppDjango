@@ -297,6 +297,3 @@ resources:
           cd /home/labs
           sudo git clone https://github.com/jhsilvaz13/ISIS2503-Microservices-AppDjango.git
           cd ISIS2503-Microservices-AppDjango/places
-          sudo pip3 install -r requirements.txt
-          sudo python3 manage.py makemigrations
-          sudo python3 manage.py migrate
